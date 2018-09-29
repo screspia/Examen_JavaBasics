@@ -17,10 +17,11 @@ public class Main {
 			
 			stockList = stockObj.CalculateShares();
 			
-			for (SharesInfo num : stockList) { 		      
-		           System.out.println(num); 		
+			for (SharesInfo num : stockList) { 
+				
+		        System.out.println(num); 		
 		      }
-			//System.out.println(stockList);
+			System.out.println(stockList);
 		} catch (IOException e) {
 			System.out.println(" Unable to calculate share values ");
 		}
