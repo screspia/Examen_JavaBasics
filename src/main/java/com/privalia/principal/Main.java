@@ -1,23 +1,28 @@
 
 package com.privalia.principal;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
-
-import com.privalia.util.CSVFileReader;
-import com.privalia.util.GetLastThursday;
+import java.util.ArrayList;
+import com.privalia.dao.StocksDao;
+import com.privalia.model.SharesInfo;
 
 public class Main {
-
+	
 	public static void main(String[] args) throws IOException {
 
-		Properties prop = new Properties();
-		prop.load(new FileInputStream("config.properties"));
+		StocksDao stockObj = new StocksDao();
 		
-		String csvFile = prop.getProperty("filename");
-		CSVFileReader.loadCSV(csvFile);
-		
-		GetLastThursday.getLastThursday(9,2018);
-	   }
+		try {
+			ArrayList<SharesInfo> stockList = null;
+			
+			stockList = stockObj.CalculateShares();
+			
+			for (SharesInfo num : stockList) { 		      
+		           System.out.println(num); 		
+		      }
+			//System.out.println(stockList);
+		} catch (IOException e) {
+			System.out.println(" Unable to calculate share values ");
+		}
+	}
 }
