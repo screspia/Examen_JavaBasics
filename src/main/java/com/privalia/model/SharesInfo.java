@@ -18,6 +18,11 @@ public class SharesInfo {
 		this.openning = new BigDecimal(openPrice);
 	}
 
+    @Override
+    public String toString() {
+        return "Information: " + date + " " + closure + " " + openning;
+    }
+	
 	/**
 	 * @return the date
 	 */
@@ -59,6 +64,5 @@ public class SharesInfo {
 	public void setOpenning(BigDecimal openning) {
 		this.openning = openning;
 	}
-
 
 }
